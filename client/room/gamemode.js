@@ -7,22 +7,14 @@ import * as teams from './default_teams.js';
 
 
 // настройки
-switch(GameMode.Parameters.GetString("game")){
-    case "1":
-        game_time = 240;
-        break;
-    case "2":
-        game_time = 420;
-        break;
-    case "3":
-        game_time = 600
-        break;
-}
+const GameModeTime = {
+        '1': 240,  
+        '2': 420,  
+        '3' 600
+};
 
 const WaitingPlayersTime = 10;
 const BuildBaseTime = 30;
-const GameModeTime = game_time;
-
 const EndOfMatchTime = 10;
 const maxDeaths = Players.MaxCount * 5;
 
