@@ -158,7 +158,6 @@ function SetGameMode() {
 
 	mainTimer.Restart(GameModeTime);
 	Spawns.GetContext().Despawn();
-	SpawnTeams();
 }
 function SetEndOfMatchMode() {
 	stateProp.Value = EndOfMatchStateValue;
@@ -175,6 +174,5 @@ function RestartGame() {
 }
 
 function SpawnTeams() {
-	for (const team of Teams)
-		Spawns.GetContext(team).Spawn();
+        for (const team of Teams) Spawns.GetContext(team).Spawn();
 }
