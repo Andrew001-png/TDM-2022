@@ -39,7 +39,7 @@
       {
         "Name": "game_time",
         "DisplayName": "Длительность игры",
-        "Default": "2",
+        "Default": "3",
         "Variants": [
           {
             "Name": "1",
