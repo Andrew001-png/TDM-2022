@@ -10,7 +10,7 @@ import * as teams from './default_teams.js';
 const GameModeTime = {
         '1': 240,  
         '2': 420,  
-        '3' 600
+        '3': 600
 };
 
 const WaitingPlayersTime = 10;
