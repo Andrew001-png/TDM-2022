@@ -56,35 +56,29 @@ const redTeam = teams.create_team_red();
 blueTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
 redTeam.Build.BlocksSet.Value = BuildBlocksSet.Red;
 
-// задаем запас смертей в каждой команде
-redTeam.Properties.Get("Deaths").Value = maxDeaths;
-blueTeam.Properties.Get("Deaths").Value = maxDeaths;
-// настраиваем параметры, которые нужно выводить в лидерборде
 LeaderBoard.PlayerLeaderBoardValues = [
 	new DisplayValueHeader("Kills", "Statistics/Kills", "Statistics/KillsShort"),
 	new DisplayValueHeader("Deaths", "Statistics/Deaths", "Statistics/DeathsShort"),
 	new DisplayValueHeader("Scores", "Statistics/Scores", "Statistics/ScoresShort")
 ];
+
 LeaderBoard.TeamLeaderBoardValue = new DisplayValueHeader("Kills", "Statistics\Kills", "Statistics\Kills");
-// ��� ������� � ����������
+
 LeaderBoard.TeamWeightGetter.Set(function (team) {
 	return team.Properties.Get("Kills").Value;
 });
-// ��� ������ � ����������
+
 LeaderBoard.PlayersWeightGetter.Set(function (player) {
 	return player.Properties.Get("Kills").Value;
 });
 
-// ������ ��� �������� ������
 Ui.GetContext().TeamProp1.Value = { Team: "Blue", Prop: "Kills" };
 Ui.GetContext().TeamProp2.Value = { Team: "Red", Prop: "Kills" };
 
-// ��������� ���� � ������� �� �������
 Teams.OnRequestJoinTeam.Add(function (player, team) { team.Add(player); });
-// ����� �� ����� � �������
+
 Teams.OnPlayerChangeTeam.Add(function (player) { player.Spawns.Spawn() });
 
-// бессмертие после респавна
 Spawns.GetContext().OnSpawn.Add(function (player) {
 	player.Properties.Immortality.Value = true;
 	player.Timers.Get(immortalityTimerName).Restart(5);
@@ -94,15 +88,10 @@ Timers.OnPlayerTimer.Add(function (timer) {
 	timer.Player.Properties.Immortality.Value = false;
 });
 
-// ����� ������ ������ ������ �������� ���� ������ � �������
-// ���� � ������� ���������� ������� ���������� �� ��������� ����
-
-// ������� �������
-// ������� �������
 Damage.OnDeath.Add(function (player) {
 	++player.Properties.Deaths.Value;
 });
-// ������� �������
+
 Damage.OnKill.Add(function (player, killed) {
 	if (killed.Team != null && killed.Team != player.Team) {
 		player.Properties.Kills.Value++;
@@ -114,7 +103,6 @@ Damage.OnKill.Add(function (player, killed) {
 	}
 });
 
-// ��������� ������������ �������
 mainTimer.OnTimer.Add(function () {
 	switch (stateProp.Value) {
 		case WaitingStateValue:
