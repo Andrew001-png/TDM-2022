@@ -23,10 +23,6 @@
         "Default": true
       },
       {
-        "Name": "OnlyKnives",
-        "DisplayName": "GmParams/OnlyKnives"
-      },
-      {
         "Name": "PartialDesruction",
         "DisplayName": "GmParams/PartialDesruction"
       },
@@ -38,6 +34,15 @@
         "Name": "FriendlyFire",
         "DisplayName": "GmParams/FriendlyFire"
       }
+   ],
+    "Dropdown": [
+      {
+        "Name": "game_time",
+        "DisplayName": "Длительность игры",
+        "Default": "2",
+        "Variants": [
+         
+        ]
     ]
   }
 }
