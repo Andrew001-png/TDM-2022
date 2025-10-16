@@ -41,7 +41,18 @@
         "DisplayName": "Длительность игры",
         "Default": "2",
         "Variants": [
-         
+          {
+            "Name": "1",
+            "DisplayName": "4 минуты"
+          },
+          {
+            "Name": "2",
+            "DisplayName": "7 минут"
+          },
+          {
+            "Name": "3",
+            "DisplayName": "10 минуты"
+          },
         ]
     ]
   }
